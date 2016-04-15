@@ -1,0 +1,94 @@
+protected void update() {
+          
+          CommandWordDescriptor wordDescriptor = CommandLineParser.getInstance().getCommandWordDescriptor(getPositionInLine());
+          setWordDescriptor(wordDescriptor);
+          
+          if (document.getLength()>0) {
+               validate(getLineContents().substring(commandPrompt.length()));
+          }
+          
+     }
+
+private String getLineContents() {
+          
+          String contents = null;
+
+          int startOffset = getStartOffset();
+          int length = getEndOffset() - startOffset;
+          
+          try {
+               contents = textPane.getText(startOffset, length);
+          } catch (BadLocationException e) {
+               e.printStackTrace();
+          }
+          
+          return contents;
+     }
+
+protected int getNumberOfLines() {
+          return document.getDefaultRootElement().getElementIndex(document.getLength());
+     }
+     
+     protected int getCurrentLineNumber() {
+          
+          int dot = textPane.getCaretPosition();
+          //get current line
+          int line = document.getDefaultRootElement().getElementIndex(dot);
+          
+          return line;
+     }
+     
+     protected int getPositionInLine() {
+          
+          int dot = textPane.getCaretPosition();
+          //get current line
+          int line = document.getDefaultRootElement().getElementIndex(dot);
+          
+          //caret position : 0 = value is before prompt
+          //                       1 = value is prompt
+          //                       2 = value is space after prompt....
+          int caretPositionOnLine = dot - document.getDefaultRootElement().getElement(line).getStartOffset();
+          //text position after prompt sign from 0 to end of command line
+          int textPositionOnLine = caretPositionOnLine - commandPrompt.length();
+          
+          return textPositionOnLine;
+     }
+     
+     public int getCaretPositionOnLine() {
+          
+          int dot = textPane.getCaretPosition();
+          //get current line
+          int line = document.getDefaultRootElement().getElementIndex(dot);
+          
+          //caret position : 0 = value is before prompt
+          //                       1 = value is prompt
+          //                       2 = value is space after prompt....
+          int caretPositionOnLine = dot - document.getDefaultRootElement().getElement(line).getStartOffset();
+          
+          return caretPositionOnLine;
+     }
+     
+     private int getStartOffset(){
+          
+          int dot = textPane.getCaretPosition();
+          //get current line
+          int line = document.getDefaultRootElement().getElementIndex(dot);
+          int startOffset = document.getDefaultRootElement().getElement(line).getStartOffset();
+          
+          return startOffset;
+     }
+     
+     private int getEndOffset(){
+          
+          int dot = textPane.getCaretPosition();
+          //get current line
+          int line = document.getDefaultRootElement().getElementIndex(dot);
+          int endOffset = document.getDefaultRootElement().getElement(line).getEndOffset() - 1;
+          
+          return endOffset;
+     }
+     
+     protected int getAbsolutePosition(int positionInLine) {
+          //startoffset in current line
+          return getStartOffset() + positionInLine + commandPrompt.length();
+     }

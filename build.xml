@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project EzLogAnalyzer with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/Programs/ezLogAnalyzer/ezLogAnalyzer.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.ez.log.view.MainView"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="C:/Projects/Zenprise/aftab-sandbox/EzLogAnalyzer/bin"/>
+        </jar>
+        <delete dir="C:/Programs/ezLogAnalyzer/ezLogAnalyzer_lib"/>
+        <mkdir dir="C:/Programs/ezLogAnalyzer/ezLogAnalyzer_lib"/>
+    </target>
+</project>

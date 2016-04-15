@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="C:/Projects/Test/ezLogViewer.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/EzLogViewer/ezLogViewer.jardesc" exportErrors="false" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=EzLogViewer/src&lt;org.ez.log.view{MainApp.java[MainApp" manifestLocation="/EzLogViewer/manifest" manifestVersion="1.0" reuseManifest="false" saveManifest="true" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal>
+                <package handleIdentifier="=EzLogViewer/src&lt;org.ez.log.om"/>
+            </packagesToUnSeal>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/EzLogViewer/.classpath"/>
+        <file path="/EzLogViewer/.project"/>
+        <javaElement handleIdentifier="=EzLogViewer/src"/>
+        <javaElement handleIdentifier="=EzLogViewer/Resources"/>
+    </selectedElements>
+</jardesc>

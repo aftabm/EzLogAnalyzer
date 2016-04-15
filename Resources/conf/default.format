@@ -1,0 +1,18 @@
+#############################################
+#Wed Sep 18 21:03:53 PDT 2013
+#############################################
+#sample=2013-06-11 23:05:52,310 [thread-1] DEBUG org.ex.log.util.UiUtil  - this is a test message
+#log4j_format=%d [%t] %5p %c %x - %m%n
+#############################################
+#
+date_format=yyyy-MM-dd HH:mm:ss,SSS
+
+#
+line_format=date thread level class_name message 
+
+#
+date=(\\d{4}-\\d{2}-\\d{2}\\s\\d{2}\\:\\d{2}:\\d{2}\\,\\d{3})\\s+ 
+thread=(\\[[^\\n\\[\\]]+\\])\\s+
+level=([a-zA-Z]+)\\s+
+class_name=([^\\s]+)\\s+
+message=([^\\n]*)
